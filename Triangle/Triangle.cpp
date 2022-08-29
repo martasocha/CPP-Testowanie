@@ -11,8 +11,7 @@ int Triangle::getArea()
 	if (isValid() == true)
 	{
 		double p = (_a + _b + _c) / 2;
-		double value = (p - _a) * (p - _b) * (p - _c) * p;
-		double area = sqrt(value);
+		double area = sqrt((p - _a) * (p - _b) * (p - _c) * p);
 		return area;
 	}
 	else
@@ -36,12 +35,5 @@ int Triangle::getPermiter()
 
 bool Triangle::isValid()
 {
-	if ((_a + _b) > _c && (_a + _c) > _b && (_b + _c) > _a)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return ((_a + _b) > _c && (_a + _c) > _b && (_b + _c) > _a);
 }

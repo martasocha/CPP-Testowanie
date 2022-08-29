@@ -5,10 +5,12 @@ class DebitBankAccount : public BankAccount
 {
 public:
 	DebitBankAccount();
-
 	void setDebitLimit(double debitlimit);
-	double getDebitLimit();
+	double getDebitLimit() const;
 	void payDebit(double amount);
+
+	bool withdraw(double amount);
+
 private:
-	double _balance;
+	double _debitLimit;
 };

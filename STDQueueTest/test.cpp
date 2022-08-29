@@ -82,3 +82,28 @@ TEST(QueueTest, TestQueuesSwap)
     EXPECT_EQ(testQueue1.front(), 7);
     EXPECT_EQ(testQueue2.front(), 1);
 }
+
+//TEST FIXTURE
+
+class StdQueueTest : public ::testing::Test 
+{
+public:
+    StdQueueTest()
+    {
+        for (unsigned int i = 1; i <= desiredQueueSize; ++i)
+        {
+            testQueue.push(i);
+        }
+    }
+protected:
+    const size_t desiredQueueSize = 3;
+    std::queue<int> testQueue;
+};
+
+TEST_F(StdQueueTest, TestPush3TimesIsSize3)
+{
+    EXPECT_EQ(testQueue.size(), 3);
+}
+
+
+// przetestowac inny kontener z std

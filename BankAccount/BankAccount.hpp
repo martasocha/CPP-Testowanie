@@ -13,6 +13,6 @@ public:
 	bool withdraw(double amount); //czy operacja sie udala
 	void deposit(double amount);
 	double getAvailableFunds() const;
-private:
+protected:
 	double _balance;
 };

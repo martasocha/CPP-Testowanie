@@ -48,6 +48,15 @@ TEST(DebitAccountTest, TestWithdrawFailWithoutDebitLimit)
 TEST(DebitAccountTest, TestWithdrawWithDebitLimit)
 {
 	DebitBankAccount debitAccount;
-	debitAccount.setDebitLimit(1000.0);
-	EXPECT_TRUE(debitAccount.withdraw(500.0));
+	debitAccount.setDebitLimit(500.0);
+	debitAccount.deposit(200.0);
+	EXPECT_TRUE(debitAccount.withdraw(600.0));
+}
+
+TEST(DebitAccountTest, TestWithdrawFailWithDebitLimit)
+{
+	DebitBankAccount debitAccount;
+	debitAccount.setDebitLimit(500.0);
+	debitAccount.deposit(200.0);
+	EXPECT_FALSE(debitAccount.withdraw(800.0));
 }
